@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your App Canva</title>
+    <title>Device Link Redirect</title>
+    <script>
+        // Check user agent and redirect accordingly
+        function redirectToApp() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.canva.editor/";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/us/app/canva-design-photo-video/id897446215";
+            } else {
+                // Redirect to a default page if the device is not recognized
+                window.location.href = "https://apps.apple.com/us/app/canva-design-photo-video/id897446215";
+            }
+        }
+
+        // Call the function on page load
+        window.onload = redirectToApp;
+    </script>
 </head>
 <body>
-    <h1>Welcome to Your App Canva</h1>
-    <p>If you're on an iOS device, you will be redirected to the App Store. For Android users, you will be redirected to the Play Store.</p>
-    
-    <script>
-        // Redirect to the appropriate app store based on user-agent
-        if ((navigator.userAgent.match(/iPhone|iPad|iPod/i) || navigator.userAgent.match(/Android/i))) {
-            window.location.href = "https://apps.apple.com/us/app/canva-design-photo-video/id897446215";
-        } else {
-            window.location.href = "https://play.google.com/store/apps/details?id=com.canva.editor";
-        }
-    </script>
+    <!-- Optional: You can customize the content displayed before the redirection -->
+    <h1>Redirecting...</h1>
 </body>
 </html>
