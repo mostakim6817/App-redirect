@@ -10,11 +10,11 @@
     <p>If you're on an iOS device, you will be redirected to the App Store. For Android users, you will be redirected to the Play Store.</p>
     
     <script>
-        // Detect the user's device
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        // Detect the user's device platform
+        const platform = navigator.platform.toLowerCase();
         
         // Redirect to the appropriate app store
-        if (isIOS) {
+        if (platform.includes('ipad') || platform.includes('iphone') || platform.includes('ipod')) {
             window.location.href = "https://apps.apple.com/us/app/canva-design-photo-video/id897446215";
         } else {
             window.location.href = "https://play.google.com/store/apps/details?id=com.canva.editor";
