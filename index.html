@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your App Canva</title>
+</head>
+<body>
+    <h1>Welcome to Your App Canva</h1>
+    <p>If you're on an iOS device, you will be redirected to the App Store. For Android users, you will be redirected to the Play Store.</p>
+    
+    <script>
+        // Detect the user's device
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        
+        // Redirect to the appropriate app store
+        if (isIOS) {
+            window.location.href = "https://apps.apple.com/us/app/canva-design-photo-video/id897446215";
+        } else {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.canva.editor";
+        }
+    </script>
+</body>
+</html>
